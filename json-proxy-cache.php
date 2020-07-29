@@ -42,9 +42,6 @@ class JsonContentImporter
         if (get_option('itais_api_errorhandling') >= 0) {
             $this->fallback2cache = get_option('itais_api_errorhandling');
         }
-        if ("1" == $fallback2cache || "2" == $fallback2cache || "3" == $fallback2cache) {
-            $this->fallback2cache = $fallback2cache;
-        }
 
         /* caching or not? */
         if ((!class_exists('FileLoadWithCache'))) {

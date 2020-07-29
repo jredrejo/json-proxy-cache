@@ -52,10 +52,10 @@ function itais_settings_page()
 		  <br>
 		  <?php
             $pluginOption_itais_api_errorhandling = get_option('itais_api_errorhandling');
-    if (empty($pluginOption_itais_api_errorhandling)) {
-        update_option('itais_api_errorhandling', 0);
-        $pluginOption_itais_api_errorhandling = 0;
-    } ?>
+            if (empty($pluginOption_itais_api_errorhandling)) {
+                update_option('itais_api_errorhandling', 3);
+                $pluginOption_itais_api_errorhandling = 3;
+            } ?>
 
 			If the request to an API to get JSON fails, the plugin can try to use a maybe cached JSON (fill the cache at least once with a successful API-request):<br>
 		  <input type="radio" name="itais_api_errorhandling" value="0" <?php echo ($pluginOption_itais_api_errorhandling == 0)?"checked=checked":""; ?> />
@@ -65,7 +65,7 @@ function itais_settings_page()
 		  <input type="radio" name="itais_api_errorhandling" value="2" <?php echo ($pluginOption_itais_api_errorhandling == 2)?"checked=checked":""; ?> />
 		  If the API sends invalid JSON: try to use cached JSON<br>
 		  <input type="radio" name="itais_api_errorhandling" value="3" <?php echo ($pluginOption_itais_api_errorhandling == 3)?"checked=checked":""; ?> />
-		  Recommended (not switched on due to backwards-compatibility):<br>If the API-http-answercode is not 200 OR sends invalid JSON: try to use cached JSON<br>
+		  Recommended: If the API-http-answercode is not 200 OR sends invalid JSON: try to use cached JSON
             </td>
         </tr>
         <tr>
